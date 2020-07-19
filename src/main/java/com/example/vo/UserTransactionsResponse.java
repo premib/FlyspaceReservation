@@ -7,6 +7,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 @ToString
 public class UserTransactionsResponse {
 

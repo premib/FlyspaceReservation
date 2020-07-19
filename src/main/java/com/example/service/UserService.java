@@ -47,8 +47,12 @@ public class UserService {
     private RegistrationRepository registrationRepository;
 
     public UserTransactionsResponse checkTransactions(UserTransactions user){
-
+        System.out.println(user.getEmail());
+        System.out.println( registrationRepository.findByEmail(user.getEmail()));
         List<RegistrationsModel> registrationsModel = registrationRepository.findByEmail(user.getEmail());
+        for(RegistrationsModel temp : registrationsModel){
+            System.out.println(temp.getEmail()+" "+temp.getFlightId()+" "+temp.getSeatNo());
+        }
         return modelMapper.map(registrationsModel, UserTransactionsResponse.class);
     }
 

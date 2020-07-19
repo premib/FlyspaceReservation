@@ -27,11 +27,11 @@ public class UserController {
 
     }
 
-    @GetMapping("/search")
+    @GetMapping("search")
     @PreAuthorize("hasRole('ROLE_AGENT') or hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-    public FlightStatusResponse searchFlight(@RequestParam Integer id){
+    public FlightStatusResponse searchFlight(@RequestParam String id){
         System.out.println("asdsadsda");
-        return userService.searchFlight(id);
+        return userService.searchFlight(Integer.valueOf(id));
     }
 
     @PostMapping("flightregister")
